@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
-from database_prod import engine, Base, test_connection
+from database import engine, Base, test_connection
 from api.routes import router
 import os
 from dotenv import load_dotenv

@@ -10,7 +10,7 @@ from schemas import (
 )
 import crud
 
-router = APIRouter(prefix="/api", tags=["notes"])
+router = APIRouter(tags=["notes"])
 
 def format_note_response(note) -> NoteResponse:
     """Convert database Note model to NoteResponse schema"""

@@ -86,6 +86,7 @@ check_file "deploy/backup_mariadb.sh" "true" "Database backup script"
 check_file "deploy/restore_mariadb.sh" "true" "Database restore script"
 check_file "deploy/setup_backup_cron.sh" "true" "Automated backup setup"
 check_file "final_check.sh" "true" "Post-deployment validation script"
+check_file "test_connection.sh" "true" "Frontend-backend connection test"
 
 echo ""
 

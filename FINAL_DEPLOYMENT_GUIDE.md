@@ -55,8 +55,9 @@ cd your-project
 ### 3. **Verify Deployment Readiness**
 ```bash
 ./verify_files.sh
+./test_connection.sh
 ```
-Ensures all files are present and properly configured.
+Ensures all files are present and frontend-backend connection is properly configured.
 
 ### 4. **Deploy Everything (Single Command)**
 ```bash
