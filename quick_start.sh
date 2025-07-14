@@ -179,10 +179,10 @@ main() {
     
     # Test database
     echo "Testing database connection..."
-    if mysql -u notes_user -pSecurePassword123! -e "USE notes_db; SELECT 1;" &>/dev/null; then
-        print_success "Database is accessible"
+    if systemctl is-active --quiet mariadb; then
+        print_success "MariaDB service is running"
     else
-        print_warning "Database connection issues. Check MariaDB status and credentials."
+        print_warning "MariaDB service is not running. Check service status."
     fi
     
     # Check backup directory

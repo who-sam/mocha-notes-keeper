@@ -32,10 +32,11 @@ I've created a complete deployment package for your Notes application on AWS EC2
 - `backend/requirements-prod.txt` - Production dependencies
 - `backend/.env.production` - Environment configuration template
 
-#### 📚 Documentation
+#### 📚 Documentation & Utilities
 - `EC2_DEPLOYMENT_README.md` - **Comprehensive deployment guide**
 - `AWS_SETUP_CHECKLIST.md` - Pre-deployment AWS setup
 - `verify_files.sh` - Deployment readiness verification
+- `final_check.sh` - Post-deployment validation script
 
 ## 🎯 Deployment Process
 

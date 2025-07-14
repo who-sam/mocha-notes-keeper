@@ -130,6 +130,14 @@ sudo ./deploy/setup_backup_cron.sh
 
 Choose your backup frequency (recommended: daily at 2 AM).
 
+### Step 9: Validate Deployment (Optional)
+
+```bash
+sudo ./final_check.sh
+```
+
+This comprehensive validation script checks all services, connectivity, database, backups, and security configurations to ensure everything is working correctly.
+
 ## 🌐 Accessing Your Application
 
 After successful deployment:

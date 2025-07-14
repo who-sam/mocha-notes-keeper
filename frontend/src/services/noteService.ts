@@ -2,7 +2,7 @@ import { Note, CreateNoteRequest, UpdateNoteRequest, DeleteNoteRequest, ApiRespo
 
 // Backend API Configuration
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://your-production-domain.com/api'
+  ? 'http://ec2-3-82-116-80.compute-1.amazonaws.com/api'
   : 'http://localhost:8000/api';
 
 class NoteService {
