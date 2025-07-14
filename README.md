@@ -1,73 +1,139 @@
-# Welcome to your Lovable project
+# Notes App - Google Keep Clone
+
+A minimal, clean note-taking application built with React, TypeScript, and Catppuccin Mocha color palette.
+
+## ✨ Features
+
+- **Create, Edit, Delete** notes with timestamps
+- **Color-coded** notes for better organization
+- **Search functionality** across title and content
+- **Responsive design** with beautiful Catppuccin Mocha theme
+- **Clean file structure** ready for backend integration
+
+## 🎨 Design
+
+- **Catppuccin Mocha** color palette for a beautiful dark theme
+- **Google Keep-inspired** layout and interaction patterns
+- **Responsive grid** that adapts to different screen sizes
+- **Smooth animations** and hover effects
+
+## 📁 File Structure
+
+```
+src/
+├── types/
+│   └── note.ts                 # Note interface & API types
+├── services/
+│   └── noteService.ts          # Backend API service layer
+├── components/
+│   └── notes/
+│       ├── NoteCard.tsx        # Individual note display
+│       ├── NoteEditor.tsx      # Create/edit note modal
+│       └── NotesGrid.tsx       # Notes grid layout
+├── pages/
+│   └── Index.tsx               # Main app page
+└── components/ui/              # Shadcn UI components
+```
+
+## 🔌 Backend Integration
+
+The frontend is ready for your Python backend! Update these files:
+
+### 1. Update API Base URL
+
+In `src/services/noteService.ts`:
+```typescript
+// Replace with your AWS EC2 domain
+const API_BASE_URL = 'https://your-ec2-domain.com/api';
+```
+
+### 2. Database Schema (MariaDB)
+
+Create a table with this structure:
+```sql
+CREATE TABLE notes (
+    id VARCHAR(36) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    color VARCHAR(7)  -- Optional: hex color codes
+);
+```
+
+### 3. Python Backend API Endpoints
+
+Your Python backend should implement these endpoints:
+
+#### GET /api/notes
+- Returns all notes for the user
+- Response: `{ "success": true, "data": [...notes] }`
+
+#### POST /api/notes  
+- Creates a new note
+- Body: `{ "title": "string", "content": "string", "color": "string?" }`
+- Response: `{ "success": true, "data": {...note} }`
+
+#### PUT /api/notes/{id}
+- Updates an existing note  
+- Body: `{ "title": "string?", "content": "string?", "color": "string?" }`
+- Response: `{ "success": true, "data": {...note} }`
+
+#### DELETE /api/notes/{id}
+- Deletes a note
+- Response: `{ "success": true, "data": true }`
+
+### 4. Error Handling
+
+All endpoints should return errors in this format:
+```json
+{
+  "success": false,
+  "error": "Error message here"
+}
+```
+
+## 🚀 Development
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Start development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Backend Integration**:
+   - The app currently uses mock data for development
+   - All API calls are clearly marked with `TODO` comments
+   - Simply uncomment the real API calls and remove mock implementations
+
+## 📝 Usage
+
+- **Create Note**: Click the "New Note" button
+- **Edit Note**: Click on any note card
+- **Delete Note**: Hover over a note and click the trash icon
+- **Search**: Use the search bar to find notes by title or content
+- **Colors**: Choose from 8 beautiful Catppuccin colors when editing
+
+## 🎯 Next Steps
+
+1. Deploy your Python backend to AWS EC2
+2. Update the `API_BASE_URL` in noteService.ts
+3. Remove mock data and enable real API calls
+4. Test all CRUD operations
+5. Deploy the frontend to your preferred hosting platform
+
+The frontend is fully functional with mock data and ready to connect to your backend!
+
+---
 
 ## Project info
 
 **URL**: https://lovable.dev/projects/3227bc58-a5d7-404d-98a0-cfe8e94beaee
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/3227bc58-a5d7-404d-98a0-cfe8e94beaee) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/3227bc58-a5d7-404d-98a0-cfe8e94beaee) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
