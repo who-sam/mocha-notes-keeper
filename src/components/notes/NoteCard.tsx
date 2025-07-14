@@ -27,7 +27,7 @@ export function NoteCard({ note, onEdit, onDelete }: NoteCardProps) {
     >
       <div className="space-y-2">
         <div className="flex items-start justify-between">
-          <h3 className="font-semibold text-sm line-clamp-2 text-card-foreground">
+          <h3 className="font-semibold text-sm line-clamp-2 text-foreground">
             {note.title || 'Untitled'}
           </h3>
           <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
