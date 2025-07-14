@@ -1,139 +1,179 @@
-# Notes App - Google Keep Clone
+# Notes App - Full Stack Application
 
-A minimal, clean note-taking application built with React, TypeScript, and Catppuccin Mocha color palette.
+A complete note-taking application with React TypeScript frontend and FastAPI Python backend.
 
 ## ✨ Features
 
-- **Create, Edit, Delete** notes with timestamps
-- **Color-coded** notes for better organization
-- **Search functionality** across title and content
-- **Responsive design** with beautiful Catppuccin Mocha theme
-- **Clean file structure** ready for backend integration
+- **Full CRUD Operations** - Create, read, update, delete notes
+- **Color-coded Notes** for better organization
+- **Search Functionality** across title and content
+- **Responsive Design** with beautiful Catppuccin Mocha theme
+- **Real-time API** with FastAPI backend
+- **SQLite Database** with SQLAlchemy ORM
 
-## 🎨 Design
-
-- **Catppuccin Mocha** color palette for a beautiful dark theme
-- **Google Keep-inspired** layout and interaction patterns
-- **Responsive grid** that adapts to different screen sizes
-- **Smooth animations** and hover effects
-
-## 📁 File Structure
+## 🏗️ Project Structure
 
 ```
-src/
-├── types/
-│   └── note.ts                 # Note interface & API types
-├── services/
-│   └── noteService.ts          # Backend API service layer
-├── components/
-│   └── notes/
-│       ├── NoteCard.tsx        # Individual note display
-│       ├── NoteEditor.tsx      # Create/edit note modal
-│       └── NotesGrid.tsx       # Notes grid layout
-├── pages/
-│   └── Index.tsx               # Main app page
-└── components/ui/              # Shadcn UI components
+├── frontend/                   # React TypeScript frontend
+│   ├── src/
+│   │   ├── types/
+│   │   │   └── note.ts         # TypeScript interfaces
+│   │   ├── services/
+│   │   │   └── noteService.ts  # API service layer
+│   │   ├── components/
+│   │   │   └── notes/          # Note components
+│   │   └── pages/
+│   │       └── Index.tsx       # Main app page
+│   ├── package.json
+│   ├── vite.config.ts
+│   └── ...
+├── backend/                    # FastAPI Python backend
+│   ├── api/
+│   │   └── routes.py          # API endpoints
+│   ├── main.py                # FastAPI application
+│   ├── models.py              # SQLAlchemy models
+│   ├── schemas.py             # Pydantic schemas
+│   ├── crud.py                # Database operations
+│   ├── database.py            # Database configuration
+│   ├── requirements.txt       # Python dependencies
+│   └── README.md              # Backend documentation
+└── README.md                  # This file
 ```
 
-## 🔌 Backend Integration
+## 🚀 Quick Start
 
-The frontend is ready for your Python backend! Update these files:
+### Prerequisites
+- Python 3.11+ (tested with 3.13)
+- Node.js 18+
+- npm or yarn
 
-### 1. Update API Base URL
+### Backend Setup
 
-In `src/services/noteService.ts`:
-```typescript
-// Replace with your AWS EC2 domain
-const API_BASE_URL = 'https://your-ec2-domain.com/api';
-```
+1. **Navigate to backend directory**:
+   ```bash
+   cd backend
+   ```
 
-### 2. Database Schema (MariaDB)
+2. **Create virtual environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-Create a table with this structure:
-```sql
-CREATE TABLE notes (
-    id VARCHAR(36) PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    color VARCHAR(7)  -- Optional: hex color codes
-);
-```
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 3. Python Backend API Endpoints
+4. **Start the server**:
+   ```bash
+   python main.py
+   ```
 
-Your Python backend should implement these endpoints:
+   The API will be available at `http://localhost:8000`
+   - API docs: `http://localhost:8000/docs`
+   - Health check: `http://localhost:8000/health`
 
-#### GET /api/notes
-- Returns all notes for the user
-- Response: `{ "success": true, "data": [...notes] }`
+### Frontend Setup
 
-#### POST /api/notes  
-- Creates a new note
-- Body: `{ "title": "string", "content": "string", "color": "string?" }`
-- Response: `{ "success": true, "data": {...note} }`
+1. **Navigate to frontend directory**:
+   ```bash
+   cd frontend
+   ```
 
-#### PUT /api/notes/{id}
-- Updates an existing note  
-- Body: `{ "title": "string?", "content": "string?", "color": "string?" }`
-- Response: `{ "success": true, "data": {...note} }`
-
-#### DELETE /api/notes/{id}
-- Deletes a note
-- Response: `{ "success": true, "data": true }`
-
-### 4. Error Handling
-
-All endpoints should return errors in this format:
-```json
-{
-  "success": false,
-  "error": "Error message here"
-}
-```
-
-## 🚀 Development
-
-1. **Install dependencies**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-2. **Start development server**:
+3. **Start development server**:
    ```bash
    npm run dev
    ```
 
-3. **Backend Integration**:
-   - The app currently uses mock data for development
-   - All API calls are clearly marked with `TODO` comments
-   - Simply uncomment the real API calls and remove mock implementations
+   The frontend will be available at `http://localhost:5173`
+
+## 🔌 API Endpoints
+
+The backend provides a complete REST API:
+
+- `GET /api/notes` - Get all notes
+- `POST /api/notes` - Create a new note
+- `GET /api/notes/{id}` - Get a specific note
+- `PUT /api/notes/{id}` - Update a note
+- `DELETE /api/notes/{id}` - Delete a note
+- `GET /health` - Health check
+- `GET /docs` - Interactive API documentation
+
+## 🎨 Design & Features
+
+- **Catppuccin Mocha** color palette for beautiful dark theme
+- **Google Keep-inspired** layout and interaction patterns
+- **Responsive grid** that adapts to different screen sizes
+- **Real-time updates** with proper API integration
+- **Error handling** and loading states
+- **Type safety** with TypeScript throughout
 
 ## 📝 Usage
 
-- **Create Note**: Click the "New Note" button
-- **Edit Note**: Click on any note card
-- **Delete Note**: Hover over a note and click the trash icon
-- **Search**: Use the search bar to find notes by title or content
-- **Colors**: Choose from 8 beautiful Catppuccin colors when editing
+1. **Create Note**: Click the "New Note" button
+2. **Edit Note**: Click on any note card
+3. **Delete Note**: Hover over a note and click the trash icon
+4. **Search**: Use the search bar to find notes by title or content
+5. **Colors**: Choose from 8 beautiful Catppuccin colors when editing
 
-## 🎯 Next Steps
+## 🛠️ Development
 
-1. Deploy your Python backend to AWS EC2
-2. Update the `API_BASE_URL` in noteService.ts
-3. Remove mock data and enable real API calls
-4. Test all CRUD operations
-5. Deploy the frontend to your preferred hosting platform
+### Backend Development
+- The backend uses FastAPI with automatic API documentation
+- SQLite database for simplicity (easily changeable to PostgreSQL/MySQL)
+- Full CORS support for frontend development
+- Comprehensive error handling and validation
 
-The frontend is fully functional with mock data and ready to connect to your backend!
+### Frontend Development
+- Built with Vite for fast development
+- Uses TanStack Query for efficient data fetching
+- Responsive design with Tailwind CSS
+- Component-based architecture with TypeScript
+
+### Testing
+Run the backend test suite:
+```bash
+cd backend
+python test_api.py
+```
+
+## 🚀 Deployment
+
+### Backend Deployment
+The backend is ready for deployment to:
+- AWS EC2
+- Heroku
+- DigitalOcean
+- Any Python hosting service
+
+### Frontend Deployment
+The frontend can be deployed to:
+- Vercel
+- Netlify
+- AWS S3 + CloudFront
+- Any static hosting service
+
+Update the API base URL in `frontend/src/services/noteService.ts` for production.
+
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env` file in the backend directory:
+```env
+DATABASE_URL=sqlite:///./notes.db
+SECRET_KEY=your-secret-key
+CORS_ORIGINS=http://localhost:5173,http://localhost:3000
+```
+
+### CORS Configuration
+The backend is configured to accept requests from common development ports. Update `main.py` for production domains.
 
 ---
 
-## Project info
-
-**URL**: https://lovable.dev/projects/3227bc58-a5d7-404d-98a0-cfe8e94beaee
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/3227bc58-a5d7-404d-98a0-cfe8e94beaee) and click on Share -> Publish.
+This is a complete, production-ready full-stack application with a modern React frontend and robust FastAPI backend!
