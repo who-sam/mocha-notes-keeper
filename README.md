@@ -40,58 +40,34 @@ A complete note-taking application with React TypeScript frontend and FastAPI Py
 └── README.md                  # This file
 ```
 
-## 🚀 Quick Start
+## 🚀 Quick Start Options
 
-### Prerequisites
-- Python 3.11+ (tested with 3.13)
-- Node.js 18+
-- npm or yarn
+### 📱 Deploy to AWS EC2 (Recommended)
+For production deployment, follow our **numbered deployment guides**:
 
-### Backend Setup
+**→ Start with [`0-OVERVIEW.md`](./0-OVERVIEW.md) for complete EC2 deployment**
 
-1. **Navigate to backend directory**:
+### 💻 Local Development
+
+For local development:
+
+1. **Backend Setup**:
    ```bash
    cd backend
-   ```
-
-2. **Create virtual environment**:
-   ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**:
-   ```bash
+   source venv/bin/activate  # Windows: venv\Scripts\activate
    pip install -r requirements.txt
-   ```
-
-4. **Start the server**:
-   ```bash
    python main.py
    ```
+   Backend runs at `http://localhost:8000`
 
-   The API will be available at `http://localhost:8000`
-   - API docs: `http://localhost:8000/docs`
-   - Health check: `http://localhost:8000/health`
-
-### Frontend Setup
-
-1. **Navigate to frontend directory**:
+2. **Frontend Setup**:
    ```bash
    cd frontend
-   ```
-
-2. **Install dependencies**:
-   ```bash
    npm install
-   ```
-
-3. **Start development server**:
-   ```bash
    npm run dev
    ```
-
-   The frontend will be available at `http://localhost:5173`
+   Frontend runs at `http://localhost:5173`
 
 ## 🔌 API Endpoints
 
@@ -145,21 +121,25 @@ python test_api.py
 
 ## 🚀 Deployment
 
-### Backend Deployment
-The backend is ready for deployment to:
-- AWS EC2
-- Heroku
-- DigitalOcean
-- Any Python hosting service
+### 🎯 AWS EC2 Deployment (Production Ready)
 
-### Frontend Deployment
-The frontend can be deployed to:
-- Vercel
-- Netlify
-- AWS S3 + CloudFront
-- Any static hosting service
+**Complete step-by-step guides available:**
 
-Update the API base URL in `frontend/src/services/noteService.ts` for production.
+| Step | Guide | Description |
+|------|-------|-------------|
+| **0** | [`0-OVERVIEW.md`](./0-OVERVIEW.md) | Deployment overview & quick start |
+| **1** | [`1-EC2-SETUP.md`](./1-EC2-SETUP.md) | Launch EC2 instance |
+| **2** | [`2-SERVER-SETUP.md`](./2-SERVER-SETUP.md) | Install software |
+| **3** | [`3-CODE-DEPLOYMENT.md`](./3-CODE-DEPLOYMENT.md) | Deploy code |
+| **4** | [`4-APPLICATION-STARTUP.md`](./4-APPLICATION-STARTUP.md) | Start services |
+| **5** | [`5-TESTING-VERIFICATION.md`](./5-TESTING-VERIFICATION.md) | Test & verify |
+
+**Total time: ~1 hour** ⏱️
+
+### 🌐 Alternative Deployments
+- **Vercel** (frontend) + **Railway** (backend)  
+- **Netlify** (frontend) + **Heroku** (backend)
+- **AWS Amplify** (full-stack)
 
 ## 🔧 Configuration
 
