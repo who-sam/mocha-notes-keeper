@@ -4,6 +4,7 @@ Quick guide to get the full-stack Notes application running locally.
 
 ## 🚀 Quick Start (All-in-one)
 
+### For Ubuntu/Debian Systems
 If you have both Python and Node.js installed:
 
 ```bash
@@ -14,9 +15,25 @@ npm run install:all
 npm run dev
 ```
 
+### For RHEL/CentOS Systems
+Use the provided RHEL setup script:
+
+```bash
+# Run the RHEL setup script (includes system dependencies)
+npm run setup:rhel
+
+# Or run directly
+./setup-rhel.sh
+
+# Then start the application
+npm run dev
+```
+
 This will start:
 - Backend API at `http://localhost:8000`
 - Frontend app at `http://localhost:5173`
+
+**Note**: On RHEL systems, you may need to configure firewall and SELinux. The setup script handles basic configuration.
 
 ## 🔧 Manual Setup
 

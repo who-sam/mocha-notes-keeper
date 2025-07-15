@@ -47,6 +47,21 @@ A complete note-taking application with React TypeScript frontend and FastAPI Py
 - Node.js 18+
 - npm or yarn
 
+### RHEL/CentOS Users
+If you're using RHEL, CentOS, or similar systems, use the provided setup script:
+```bash
+# Make sure the script is executable
+chmod +x setup-rhel.sh
+
+# Run the RHEL setup script
+./setup-rhel.sh
+
+# Or use npm script
+npm run setup:rhel
+```
+
+See `RHEL_SETUP_GUIDE.md` for detailed RHEL-specific instructions.
+
 ### Backend Setup
 
 1. **Navigate to backend directory**:
