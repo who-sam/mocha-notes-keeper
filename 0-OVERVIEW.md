@@ -4,7 +4,13 @@
 
 ## 🎯 Quick Start
 
-Follow these numbered guides **in order** for a successful EC2 deployment:
+**TWO OPTIONS:**
+
+### 🎯 **Option 1: Simple Commands** (Recommended for experienced users)
+**→ Go to [`COMMANDS-TO-RUN.md`](./COMMANDS-TO-RUN.md)** - Just copy/paste commands in order
+
+### 📚 **Option 2: Detailed Guides** (Recommended for beginners)
+Follow these numbered guides **in order** for detailed explanations:
 
 ### 📚 Deployment Steps
 

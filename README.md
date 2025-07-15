@@ -43,9 +43,10 @@ A complete note-taking application with React TypeScript frontend and FastAPI Py
 ## 🚀 Quick Start Options
 
 ### 📱 Deploy to AWS EC2 (Recommended)
-For production deployment, follow our **numbered deployment guides**:
 
-**→ Start with [`0-OVERVIEW.md`](./0-OVERVIEW.md) for complete EC2 deployment**
+**🎯 SIMPLE: Want just the commands?** → **[`COMMANDS-TO-RUN.md`](./COMMANDS-TO-RUN.md)**
+
+**📚 DETAILED: Want step-by-step guides?** → **[`0-OVERVIEW.md`](./0-OVERVIEW.md)**
 
 ### 💻 Local Development
 
