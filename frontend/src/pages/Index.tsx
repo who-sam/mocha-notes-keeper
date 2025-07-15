@@ -37,7 +37,7 @@ const Index = () => {
 
   /**
    * Load all notes from backend
-   * TODO: This connects to your Python backend API
+   * Connects to Python FastAPI backend
    */
   const loadNotes = async () => {
     setIsLoading(true);
@@ -65,7 +65,7 @@ const Index = () => {
 
   /**
    * Handle creating a new note
-   * TODO: This will call your Python backend API
+   * Calls Python FastAPI backend
    */
   const handleCreateNote = async (noteData: { title: string; content: string; color?: string }) => {
     try {
@@ -94,7 +94,7 @@ const Index = () => {
 
   /**
    * Handle updating an existing note
-   * TODO: This will call your Python backend API
+   * Calls Python FastAPI backend
    */
   const handleUpdateNote = async (noteData: { title: string; content: string; color?: string }) => {
     if (!editingNote) return;
@@ -131,7 +131,7 @@ const Index = () => {
 
   /**
    * Handle deleting a note
-   * TODO: This will call your Python backend API
+   * Calls Python FastAPI backend
    */
   const handleDeleteNote = async (noteId: string) => {
     try {
